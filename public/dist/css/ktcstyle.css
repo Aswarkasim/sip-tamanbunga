@@ -11,13 +11,15 @@ a {
     color: #3b7ddd;
 }
 .sidebar-dark-primary {
-    background-color: #222e3c;
+    /* background-color: #222e3c; */
+    /* background-color: #e76f51; */
+    background-color: #93aab2;
 }
 .nav-link i {
-    color: #818891;
+    color: #fff  ;
 }
 .nav-link p {
-    color: #818891;
+    color: #fff  ;
 }
 
 .btn-primary {
@@ -28,26 +30,26 @@ a {
     color: #fff;
     background: linear-gradient(
         90deg,
-        rgba(37, 54, 76, 1) 0%,
-        rgba(34, 46, 60, 1) 100%
+        rgb(235, 241, 155) 0%,
+        rgb(250, 250, 49) 100%
     );
-    border-left: 5px solid #3b7ddd;
+    border-left: 5px solid #b76e09;
 }
 
 .active p {
-    color: #fff;
+    color: #000;
 }
 .active i {
-    color: #fff;
+    color: #000;
 }
 
 .child-active {
-    background-color: #495057;
+    background-color: #fcf967;
 }
 .child-active p {
-    color: #fff;
+    color: #000;
 }
 
 .child-active i {
-    color: #fff;
+    color: #000;
 }

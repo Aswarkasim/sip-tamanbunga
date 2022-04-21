@@ -6,7 +6,7 @@
         @if (Request::is('admin/banner/create'))
           <form action="/admin/banner" method="POST" enctype="multipart/form-data">  
         @else
-          <form action="/admin/banner/{{$banner->id}}" method="POST" encype="multipart/form-data">  
+          <form action="/admin/banner/{{$banner->id}}" method="POST" enctype="multipart/form-data">  
             @method('PUT')
         @endif
           @csrf
@@ -59,7 +59,7 @@
 
           <div class="form-group">
             <label for="">Gambar</label>
-            <input type="file" class="form-control  @error('image') is-invalid @enderror"  name="image"  value="{{isset($banner) ? $banner->image : old('image')}}" placeholder="image">
+            <input type="file" class="form-control  @error('image') is-invalid @enderror"  name="image" placeholder="image">
             {{-- <input type="file" class="form-control  @error('image') is-invalid @enderror"  name="image"  placeholder="image"> --}}
              @error('image')
                 <div class="invalid-feedback">

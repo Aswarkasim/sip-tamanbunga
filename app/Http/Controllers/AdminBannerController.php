@@ -117,17 +117,18 @@ class AdminBannerController extends Controller
         $banner = Banner::find($id);
         $data = $request->validate([
             'topik'         => 'required',
-            'image'         => 'mimes:jpeg,jpg,png,bmp',
+            // 'image'         => 'mimes:jpeg,jpg,png,bmp',
             'urutan'        => 'required|unique:banners,urutan,' . $banner->id,
             'desc'          => 'required|min:3',
         ]);
 
+        // dd($request->all());
         //perbaiki upload imagenya
         if ($request->hasFile('image')) {
 
-            if ($banner->image != '') {
-                unlink($banner->image);
-            }
+            // if ($banner->image != '') {
+            //     unlink($banner->image);
+            // }
 
             $image = $request->file('image');
             $file_name = time() . "_" . $image->getClientOriginalName();
@@ -136,7 +137,7 @@ class AdminBannerController extends Controller
             $image->move($storage, $file_name);
             $data['image'] = $storage . $file_name;
         } else {
-            $data['image'] = 'null';
+            $data['image'] = null;
         }
 
         $banner->update($data);

@@ -2,8 +2,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="/img/ktc_logo_line.png" alt="AdminLTE Logo" width="15px" class="" style="opacity: .8"> 
-      <span class="brand-text font-weight-light">KTC FW</span>
+      {{-- {{-- <img src="/img/ktc_logo_line.png" alt="AdminLTE Logo" width="15px" class="" style="opacity: .8">  --}}
+      <span class="brand-text font-weight-light">SIP</span> 
     </a>
 
     <!-- Sidebar -->
@@ -109,7 +109,7 @@
             </ul>
           </li>
            <li class="nav-item">
-            <a href="/admin/banner" class="nav-link">
+            <a href="/admin/banner" class="nav-link {{Request::is('admin/banner*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-image"></i>
               <p>
                 Banner
@@ -117,7 +117,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/konfigurasi" class="nav-link">
+            <a href="/admin/konfigurasi" class="nav-link {{Request::is('admin/konfigurasi*') ? 'child-active' : ''}}">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Konfigurasi

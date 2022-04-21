@@ -3,37 +3,48 @@
     <div class="p-3  card">
       <div class="card-body">
 
-        @if (Request::is('admin/imunisasi/create'))
-          <form action="/admin/imunisasi" method="POST">  
+        <h4><b>Data Peserta</b></h4>
+
+        @if (Request::is('admin/peserta/create'))
+          <form action="/admin/peserta" method="POST">  
         @else
-          <form action="/admin/imunisasi/{{$imunisasi->id}}" method="POST">  
+          <form action="/admin/peserta/{{$peserta->id}}" method="POST">  
             @method('PUT')
         @endif
           @csrf
-          <div class="form-group">
-            <label for="">Nama</label>
-            <input type="text" class="form-control  @error('nama') is-invalid @enderror"  name="nama"  value="{{isset($imunisasi) ? $imunisasi->nama : old('nama')}}" placeholder="Nama">
-             @error('nama')
-                <div class="invalid-feedback">
-                  {{$message}}
-                </div>
-             @enderror
-          </div>
+          
+          <table class="table">
+            <tr>
+              <td>Nama</td>
+              <td>: {{$peserta->nama}}</td>
+            </tr>
+
+             <tr>
+              <td>Tempat Tanggal Lahir</td>
+              <td>: {{$peserta->tempat_lahir.', '.$peserta->tanggal_lahir}}</td>
+            </tr>
+
+             <tr>
+              <td>Jenis Kelamin</td>
+              <td>: {{$peserta->jenis_kelamin}}</td>
+            </tr>
+
+             <tr>
+              <td>Jenis Peserta</td>
+              <td>: {{$peserta->jenis}}</td>
+            </tr>
+
+             <tr>
+              <td>Status</td>
+              <td>: {{$peserta->status}}</td>
+            </tr>
 
 
-          <div class="form-group">
-            <label for="">Tanggal</label>
-            <input type="date" class="form-control  @error('tanggal') is-invalid @enderror"  name="tanggal"  value="{{isset($imunisasi) ? $imunisasi->tanggal : old('tanggal')}}" placeholder="Tanggal">
-             @error('tanggal')
-                <div class="invalid-feedback">
-                  {{$message}}
-                </div>
-             @enderror
-          </div>
+          </table>
 
      
-          <a href="/admin/imunisasi" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>
-         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+          <a href="/admin/peserta" class="btn btn-info "><i class="fa fa-arrow-left"></i> Kembali</a>
+         <a href="/admin/peserta/print?peserta_id={{$peserta->id}}" class="btn btn-primary" target="blank"><i class="fa fa-print"></i> Cetak Riwayat Pemeriksaan</a>
         
         </form>
       </div>

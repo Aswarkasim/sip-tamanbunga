@@ -83,8 +83,10 @@ class AdminPesertaController extends Controller
     public function show($id)
     {
         //
+        $peserta = Peserta::find($id)->first();
         $data = [
-            'title'   => 'Manajemen Peserta',
+            'title'   => 'Detail Peserta',
+            'peserta'   => $peserta,
             'content' => 'admin/peserta/detail'
         ];
         return view('admin/layouts/wrapper', $data);
@@ -122,6 +124,15 @@ class AdminPesertaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function print()
+    {
+        $peserta_id = request('peserta_id');
+        $data['pemeriksaan'] = Pemeriksaan::with(['imunisasi'])->where('peserta_id', $peserta_id)->get();
+        $data['peserta'] = Peserta::find($peserta_id)->first();
+        // printr_pretty($data);
+        return view('admin/peserta/print_history', $data);
     }
 
     function history()

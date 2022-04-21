@@ -65,6 +65,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     Route::get('/peserta/history', [AdminPesertaController::class, 'history']);
     Route::get('/kematian', [AdminPesertaController::class, 'kematian']);
+    Route::get('/peserta/print', [AdminPesertaController::class, 'print']);
     Route::resource('/peserta', AdminPesertaController::class);
 
     Route::put('/pemeriksaan/update/{id}', [AdminPemeriksaanController::class, 'update']);

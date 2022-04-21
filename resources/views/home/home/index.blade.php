@@ -10,7 +10,7 @@
     @foreach ($banner as $item)
         
     <div class="carousel-item {{$item->urutan == '1' ? 'active' : ''}}">
-      <img class="first-slide" src="{{$item->image}}" alt="First slide">
+      <img class="first-slide" src="/{{$item->image}}" alt="First slide">
       <div class="container">
         <div class="carousel-caption text-left">
           <h1>{{$item->topik}}</h1>
